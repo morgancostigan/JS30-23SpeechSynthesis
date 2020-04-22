@@ -71,13 +71,14 @@
 
   function setOption( ) {
     console.log(this.name, this.value);
-    
+    msg[this.name] = this.value; //sets the value on whatever option was changed
+    toggle(); //restart speech
   }//end setOption function
 
   speechSynthesis.addEventListener('voiceschanged', populateVoices); //voiceschanged is a method on speechSynthesis.  populate voices can take longer than pageload, which is why we fire it after 
   voicesDropdown.addEventListener('change', setVoice); 
   options.forEach(option => option.addEventListener('change', setOption)); //listens for change on sliders or text area and fires setOption function
-
+  speakButton.addEventListener('click', toggle);//restart speech on click
 
 </script>
 
