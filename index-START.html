@@ -63,7 +63,7 @@
 
   //vvv THIS WILL RUN ON CHANGEvvv
   function toggle(startOver = true) { 
-    speechSynthesis.cancel; //stop speaking
+    speechSynthesis.cancel(); //stop speaking
     if (startOver){
       speechSynthesis.speak(msg); //begin speaking
     }//end IF
@@ -79,6 +79,7 @@
   voicesDropdown.addEventListener('change', setVoice); 
   options.forEach(option => option.addEventListener('change', setOption)); //listens for change on sliders or text area and fires setOption function
   speakButton.addEventListener('click', toggle);//restart speech on click
+  stopButton.addEventListener('click', () => toggle(false)); //stop speech
 
 </script>
 
