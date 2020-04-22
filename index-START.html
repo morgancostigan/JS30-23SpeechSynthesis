@@ -22,7 +22,7 @@
       <label for="pitch">Pitch:</label>
 
       <input name="pitch" type="range" min="0" max="2" step="0.1">
-      <textarea name="text">Well I'll be a monkey's uncle!  👍</textarea>
+      <textarea name="text">Well,  I'll be a monkey's uncle!  👍</textarea>
       <button id="stop">STFU!</button>
       <button id="speak">Babble </button>
 
@@ -53,10 +53,15 @@
     `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
     .join(''); //shorter, cleaner
     
-    
   }//end populateVoices function
 
+  function setVoice() {
+    console.log('Changing voice.');
+    
+  }//end setVoice function
+
   speechSynthesis.addEventListener('voiceschanged', populateVoices); //voiceschanged is a method on speechSynthesis.  populate voices can take longer than pageload, which is why we fire it after 
+  voicesDropdown.addEventListener('change', setVoice); 
 
 
 </script>
