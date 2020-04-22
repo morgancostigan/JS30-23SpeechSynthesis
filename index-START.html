@@ -40,7 +40,18 @@
 
   function populateVoices() {
     voices = this.getVoices();
-    console.log(voices);
+    //vvvv SET VOICE OPTIONS vvvv
+
+    // const voiceOptions = voices
+    // .map(voice => 
+    // `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+    // .join('');
+    // voicesDropdown.innerHTML = voiceOptions; //standard
+
+    voicesDropdown.innerHTML = voices
+    .map(voice =>
+    `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+    .join(''); //shorter, cleaner
     
     
   }//end populateVoices function
