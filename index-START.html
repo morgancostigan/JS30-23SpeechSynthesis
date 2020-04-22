@@ -37,6 +37,17 @@
   const stopButton = document.querySelector('#stop');
 
   msg.text = document.querySelector('[name="text"]').value; //grabs whatever text is in the text box at pageload 
+
+  function populateVoices() {
+    voices = this.getVoices();
+    console.log(voices);
+    
+    
+  }//end populateVoices function
+
+  speechSynthesis.addEventListener('voiceschanged', populateVoices); //voiceschanged is a method on speechSynthesis.  populate voices can take longer than pageload, which is why we fire it after 
+
+
 </script>
 
 </body>
