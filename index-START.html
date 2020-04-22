@@ -49,6 +49,7 @@
     // voicesDropdown.innerHTML = voiceOptions; //standard
 
     voicesDropdown.innerHTML = voices
+    .filter(voice => voice.lang.includes('en')) //filters to english or italian
     .map(voice =>
     `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
     .join(''); //shorter, cleaner
