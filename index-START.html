@@ -56,7 +56,8 @@
   }//end populateVoices function
 
   function setVoice() {
-    console.log('Changing voice.');
+    console.log(this.value);
+    msg.voice = voices.find(voice => voice.name === this.value);//finds the voice that matches the name you've just selected
     
   }//end setVoice function
 
