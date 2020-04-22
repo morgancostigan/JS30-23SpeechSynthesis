@@ -62,13 +62,21 @@
   }//end setVoice function
 
   //vvv THIS WILL RUN ON CHANGEvvv
-  function toggle() { 
+  function toggle(startOver = true) { 
     speechSynthesis.cancel; //stop speaking
-    speechSynthesis.speak(msg); //begin speaking
+    if (startOver){
+      speechSynthesis.speak(msg); //begin speaking
+    }//end IF
   }//end toggle function 
+
+  function setOption( ) {
+    console.log(this.name, this.value);
+    
+  }//end setOption function
 
   speechSynthesis.addEventListener('voiceschanged', populateVoices); //voiceschanged is a method on speechSynthesis.  populate voices can take longer than pageload, which is why we fire it after 
   voicesDropdown.addEventListener('change', setVoice); 
+  options.forEach(option => option.addEventListener('change', setOption)); //listens for change on sliders or text area and fires setOption function
 
 
 </script>
