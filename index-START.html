@@ -58,8 +58,14 @@
   function setVoice() {
     console.log(this.value);
     msg.voice = voices.find(voice => voice.name === this.value);//finds the voice that matches the name you've just selected
-    
+    toggle(); // run toggle function to start speech over in new voice
   }//end setVoice function
+
+  //vvv THIS WILL RUN ON CHANGEvvv
+  function toggle() { 
+    speechSynthesis.cancel; //stop speaking
+    speechSynthesis.speak(msg); //begin speaking
+  }//end toggle function 
 
   speechSynthesis.addEventListener('voiceschanged', populateVoices); //voiceschanged is a method on speechSynthesis.  populate voices can take longer than pageload, which is why we fire it after 
   voicesDropdown.addEventListener('change', setVoice); 
